@@ -18,7 +18,7 @@ def formatNumber(num):
     return round(num, 2)
 
 data = load_file()
-color_list = ['#E66101', '#FDB863', '#EAEAEA', '#92C5DE', '#0571B0']
+color_list = ['#E66101', '#FDB863', '#DDDDDD', '#92C5DE', '#0571B0']
 
 constituencies = list(data.keys())
 constituencies.remove('Kaikki vaalipiirit')
@@ -64,7 +64,7 @@ def create_bar_figure(constituency, data, question):
 				'b': 50,
 				'pad': 5
 			},
-			'annotations': [{'x': 100, 'y': y, 'yref': 'y', 'xanchor': 'left', 'text': str('{:.2f}'.format(round(mean, 2))) + ' | ' + str(formatNumber(median)), 'showarrow': False, 'align': 'center'} for y, mean, median in zip(d['average'].loc[:, (question, 'mean')].index, d['average'].loc[:, (question, 'mean')], d['average'].loc[:, (question, 'median')])]+[{'x': 100, 'y': len(d['average']), 'yref': 'y', 'xanchor': 'left', 'text': 'ka.   | Md.', 'showarrow': False, 'align': 'center'}]
+			'annotations': [{'x': 100, 'y': y, 'yref': 'y', 'xanchor': 'left', 'text': str('{:.2f}'.format(round(mean, 2))) + ' <b>|</b> ' + str(formatNumber(median)), 'showarrow': False, 'align': 'center'} for y, mean, median in zip(d['average'].loc[:, (question, 'mean')].index, d['average'].loc[:, (question, 'mean')], d['average'].loc[:, (question, 'median')])]+[{'x': 100, 'y': len(d['average']), 'yref': 'y', 'xanchor': 'left', 'text': 'ka.   <b>|</b> Md.', 'showarrow': False, 'align': 'center'}]
 		}
 	}
 
@@ -96,7 +96,7 @@ app.layout = html.Div(
 									html.P('Palveluissa näytetään puolueittain vastausten suhteellinen jakautuminen valitussa vaalipiirissä (tai niissä kaikissa). Puolueet näytetään graafeissa vastausten keskiarvojen mukaisessa järjestyksessä, jotka näkyvät myös graafien oikeassa reunassa (ka.). Tämän vieressä näkyy myös vastausten mediaani (Md.).'),
 									html.P('Puolueiden nimiä on lyhennetty alkuperäisestä datasta seuraavanlaisesti: Suomen Kommunistinen Puolue = SKP, Kommunistinen Työväenpuolue = KTP, Kansanliike Suomen Puolesta = KSP, Seitsemän tähden liike = STL, Suomen Kansa Ensin = SKE.'),
 									html.P(children=['Visualisoinnin takana on Joona Repo / ', html.A('Mapple', href='https://mapple.io/'), '.']),
-									html.P(children=['Aineisto on ladattu avoimena datana ', html.A('Ylen sivuilta', href='https://yle.fi/uutiset/3-10725384'), '.'])
+									html.P(children=['Aineisto on ladattu avoimena datana ', html.A('YLEn sivuilta', href='https://yle.fi/uutiset/3-10725384'), '.'])
 							])
 						])
 				]
@@ -147,8 +147,8 @@ app.layout = html.Div(
 				id="tabs",
 				value='graph',
 				children=[
-					dcc.Tab(label='Graafi', value='graph', style={'padding': '10px'}, selected_style={'padding': '10px'}),
-					dcc.Tab(id='constituency-tab', label='Vaalipiiri(t): Kaikki vaalipiirit', value='constituency', style={'padding': '10px'}, selected_style={'padding': '10px'}),
+					dcc.Tab(label='Graafi', value='graph', style={'padding': '10px'}, selected_style={'padding': '10px', 'fontWeight': 'bold'}),
+					dcc.Tab(id='constituency-tab', label='Vaalipiiri(t): Kaikki vaalipiirit', value='constituency', style={'padding': '10px'}, selected_style={'padding': '10px', 'fontWeight': 'bold'}),
 			])
 		])
 
