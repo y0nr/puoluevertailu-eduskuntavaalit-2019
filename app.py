@@ -69,6 +69,7 @@ def create_bar_figure(constituency, data, question):
 	}
 
 app = dash.Dash(__name__)
+app.title='Puoluevertailu by Mapple'
 app.config['suppress_callback_exceptions']=True
 
 app.layout = html.Div(
@@ -78,7 +79,7 @@ app.layout = html.Div(
 	html.Div(
 		id='bar-top',
 		children=[
-			html.H1(children='Puoluevertailu.'),
+			html.H1(children=['Puoluevertailu', html.Span(children=['by', html.A('Mapple', href='https://mapple.io/', style={'marginLeft': '5px'})], style={'fontSize': '12px', 'marginLeft': '5px'})]),
 			html.Div('YLEn vaalikonevastausten vertailua puolueittain.', style={'fontSize': '13px'}),
 			html.Button(id='info-button', children='i'),
 			html.Div(
