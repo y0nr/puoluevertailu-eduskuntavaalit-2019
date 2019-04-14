@@ -5,7 +5,7 @@ Repository for puoluevertailu, visualization service made with Dash about respon
 # Instructions
 
 Clone the repository, then run:
-`pip -m venv venv`
+`python -m venv venv`
 in folder, to create a virtual environment.
 
 Activate environtment with
