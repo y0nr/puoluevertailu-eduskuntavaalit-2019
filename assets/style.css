@@ -245,6 +245,7 @@ svg {
   text-transform: lowercase;
   font-size: 15px;
   cursor: pointer;
+  background-color: #fff;
 }
 
 #info-wrapper {
