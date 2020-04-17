@@ -69,7 +69,7 @@ def create_bar_figure(constituency, data, question):
 	}
 
 app = dash.Dash(__name__)
-app.title='Puoluevertailu by Mapple'
+app.title='Puoluevertailu'
 app.config['suppress_callback_exceptions']=True
 
 app.layout = html.Div(
@@ -79,7 +79,7 @@ app.layout = html.Div(
 	html.Div(
 		id='bar-top',
 		children=[
-			html.H1(children=['Puoluevertailu', html.Span(children=['by', html.A('Mapple', href='https://mapple.io/', style={'marginLeft': '5px'})], style={'fontSize': '12px', 'marginLeft': '5px'})]),
+			html.H1(children=['Puoluevertailu']),
 			html.Div('YLEn vaalikonevastausten vertailua puolueittain.', style={'fontSize': '13px'}),
 			html.Button(id='info-button', children='i'),
 			html.Div(
@@ -96,7 +96,7 @@ app.layout = html.Div(
 									html.P('Tällä työkalulla voit vertailla puolueiden vuoden 2019 eduskuntavaalien YLEn vaalikonevastausten jakautumista koko maassa sekä vaalipiireittäin viisiportaisten kysymysten (täysin samaa mieltä - täysin eri mieltä) osalta.'),
 									html.P('Palveluissa näytetään puolueittain vastausten suhteellinen jakautuminen valitussa vaalipiirissä (tai niissä kaikissa). Puolueet näytetään graafeissa vastausten keskiarvojen mukaisessa järjestyksessä, jotka näkyvät myös graafien oikeassa reunassa (ka.). Tämän vieressä näkyy myös vastausten mediaani (Md.).'),
 									html.P('Puolueiden nimiä on lyhennetty alkuperäisestä datasta seuraavanlaisesti: Suomen Kommunistinen Puolue = SKP, Kommunistinen Työväenpuolue = KTP, Kansanliike Suomen Puolesta = KSP, Seitsemän tähden liike = STL, Suomen Kansa Ensin = SKE.'),
-									html.P(children=['Visualisoinnin takana on Joona Repo / ', html.A('Mapple', href='https://mapple.io/'), '.']),
+									html.P(children=['Visualisoinnin takana on Joona Repo.']),
 									html.P(children=['Aineisto on ladattu avoimena datana ', html.A('YLEn sivuilta', href='https://yle.fi/uutiset/3-10725384'), '.'])
 							])
 						])
@@ -213,4 +213,4 @@ def open_info(open_event, close_event):
 		
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0')
+    app.run_server(host='0.0.0.0')
